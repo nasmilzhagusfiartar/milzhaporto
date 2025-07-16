@@ -128,6 +128,14 @@ class ProjectController extends Controller
      */
     public function destroy(Project $project)
     {
-        //
+        try {
+            $project->delete();
+            return redirect()->back()->with('success', 'Project deleted successfully.');
+    } catch (\Exception $e) {
+        DB::rollBack();
+
+        return redirect()->back()->with('error', 'System Error! ' . $e->getMessage());
     }
+}
+
 }

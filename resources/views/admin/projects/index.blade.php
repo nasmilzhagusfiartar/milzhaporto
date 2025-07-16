@@ -31,10 +31,10 @@
                         </div>
                         </div>
                         <div class="flex flex-row items-center gap-x-2">
-                         <a href="#" class="py-3 px-5 rounded-full bg-indigo-950 text-white">
+                         <a href="{{ route('admin.project.assign.tool', $project) }}" class="py-3 px-5 rounded-full bg-indigo-950 text-white">
                             Add Tools
                         </a>
-                        <a href="#" class="py-3 px-5 rounded-full bg-red-950 text-white">
+                        <a href="{{ route('admin.project_screenshots.create', $project) }}" class="py-3 px-5 rounded-full bg-red-950 text-white">
                             Add Screenshots
                         </a>
                         <a href="#" class="py-3 px-5 rounded-full bg-red-800 text-white">
@@ -45,9 +45,13 @@
                          <a href="{{ route('admin.projects.edit', $project) }}" class="py-3 px-5 rounded-full bg-indigo-500 text-white">
                             Edit
                         </a>
-                        <a href="#" class="py-3 px-5 rounded-full bg-red-500 text-white">
+                        <form action="{{ route('admin.projects.destroy', $project) }}" method="POST" >
+                            @csrf
+                            @method('DELETE')
+                        <button type="submit" class="py-3 px-5 rounded-full bg-red-500 text-white">
                             Delete
-                        </a>
+                        </button>
+                        </form>
                         </div>
                     </div>
                     @empty

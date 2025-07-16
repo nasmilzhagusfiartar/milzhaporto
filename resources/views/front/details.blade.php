@@ -29,10 +29,10 @@
             </div>
         </nav>
         <div class="hero container max-w-[1130px] mx-auto flex flex-col justify-center items-center relative">
-            <h1 class="font-extrabold text-[50px] leading-[70px] text-white text-center z-10">AI Finance Insurance</h1>
-            <p class="text-xl leading-[30px] text-white z-10">Website Development</p>
+            <h1 class="font-extrabold text-[50px] leading-[70px] text-white text-center z-10">{{ $project->name }}</h1>
+            <p class="text-xl leading-[30px] text-white z-10">{{ $project->category }}</p>
             <div class="flex shrink-0 w-full h-[800px] rounded-[50px] overflow-hidden bg-white mt-[70px] z-10">
-                <img src="{{asset('/images/thumbnails/details-thumbnail.png')}}" class="w-full h-full object-cover" alt="thumbnail">
+                <img src="{{ Storage::url($project->cover) }}" class="w-full h-full object-cover" alt="thumbnail">
             </div>
             <img src="{{asset('/images/Ellipse.svg')}}" class="absolute transform -translate-x-1/2 -translate-y-1/2 left-1/2 top-[135px] w-[35%]" alt="background icon">
         </div>
@@ -43,8 +43,7 @@
             <div class="flex flex-col gap-5">
                 <h2 class="font-extrabold text-2xl">The First Purpose</h2>
                 <div class="description flex flex-col gap-4 font-medium text-lg leading-[38px]">
-                    <p>FinanceAI is a cutting-edge mobile application revolutionizing personal finance management through artificial intelligence. This intuitive app is engineered to empower users with real-time financial insights and personalized.</p>
-                    <p>At the heart of FinanceAI lies a sophisticated AI engine that analyzes spending patterns, investment choices, and saving habits to offer tailored recommendations. Whether it's optimizing budgets, identifying investment opportunities, or potential savings, FinanceAI ensures users are always a step ahead in their financial.</p>
+                     {!! $project->about !!}
                 </div>
                 <div class="flex gap-4">
                     <div class="flex items-center gap-1 bg-[#F4F5F8] p-[8px_10px] rounded-[12px]">

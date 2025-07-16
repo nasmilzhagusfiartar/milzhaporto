@@ -13,4 +13,18 @@ class Project extends Model
     protected $guarded = [
         'id'
     ];
+
+    public function tools()
+    {
+        return $this->belongsToMany(Tool::class, 'project_tools', 'project_id', 'tool_id')
+        ->wherePivotNull('deleted_at')
+        ->withPivot('id');
+    }
+
+    public function screenshots()
+    {
+        return $this->hasMany(ProjectScreenshot::class, 'project_id', 'id');
+        
+        
+    }
 }
